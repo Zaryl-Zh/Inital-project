@@ -17,15 +17,15 @@ function App() {
      date: new Date(2021, 2,12),
   },
   {
-    id: 'e2',
-    title: 'New TV',
-    amount: 799.49,
-    date: new Date(2021, 2,12),
+    id: 'e3',
+    title: 'Car',
+    amount: 1099.49,
+    date: new Date(2021, 5,17),
  }
   ]
   return (
     <div className="App">
-      <Expenses />
+      <Expenses expenses = {expenses}/>
     </div>
   );
 }
