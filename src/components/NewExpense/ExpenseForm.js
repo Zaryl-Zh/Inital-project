@@ -3,6 +3,8 @@ import './ExpenseForm.css';
 
 const ExpenseForm = (props) => {
 
+
+    const [addExpenseBtn, setAddExpenseBtn] =useState('')
 //  1st method
     const [enteredTitle, setTitle] = useState('');
     const [enteredAmount, setAmount] = useState('');
@@ -63,7 +65,16 @@ const ExpenseForm = (props) => {
         setDate('');
     }
 
-return <form onSubmit={submitHandler}>
+    const cancelBtn = () => {
+        setAddExpenseBtn(false)
+    }
+    const showExpenseForm = () => {
+        setAddExpenseBtn(true)
+    }
+
+    
+if(addExpenseBtn) {
+    return <form onSubmit={submitHandler}>
     <div className="new-expense__controls">
         <div className="new-expense__control">
             <label htmlFor='title'>Title</label>
@@ -104,9 +115,19 @@ return <form onSubmit={submitHandler}>
 
     </div>
     <div className="new-expense__actions">
+        <button type = "submit" onClick={cancelBtn}>Cancel</button>
         <button type = "submit">Add Expense</button>
     </div>
 </form>
 }
+
+
+return <div>
+    <button onClick= {showExpenseForm} type= 'submit'>Add expense</button>
+</div>
+}
+
+
+
 
 export default ExpenseForm;
